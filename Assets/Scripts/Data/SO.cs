@@ -13,4 +13,5 @@ public class MainMenu : ScriptableObject
 public class SubMenu : ScriptableObject
 {
     public string subMenuName;
+    public GameObject prefab;
 }
