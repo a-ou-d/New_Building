@@ -77,8 +77,6 @@ public class CharController_Motor : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E)) { Interact(); }
 
         if (Input.GetKeyDown(KeyCode.Tab)) { OpenCraftingBook(); }
-
-        if (Input.GetKeyDown(KeyCode.I)) { OpenInventory(); }
     }
 
 
@@ -98,12 +96,6 @@ public class CharController_Motor : MonoBehaviour
     void OpenCraftingBook()
     {
         // 건축 제작법..
-    }
-
-
-    void OpenInventory()
-    {
-        // 인벤토리
     }
 
 }
