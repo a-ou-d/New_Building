@@ -17,6 +17,8 @@ public class CharController_Motor : MonoBehaviour
     float rotX, rotY;
     public bool webGLRightClickRotation = true;
 
+    public static bool isNavigatingUI = false;
+
 
     void Start()
     {
@@ -46,37 +48,42 @@ public class CharController_Motor : MonoBehaviour
 
     void Update()
     {
-        moveFB = Input.GetAxis("Horizontal") * speed;
-        moveLR = Input.GetAxis("Vertical") * speed;
-
-        rotX = Input.GetAxis("Mouse X") * sensitivity;
-        rotY = Input.GetAxis("Mouse Y") * sensitivity;
-
-        //rotX = Input.GetKey (KeyCode.Joystick1Button4);
-        //rotY = Input.GetKey (KeyCode.Joystick1Button5);
-
-        CheckForWaterHeight();
-
-        Vector3 movement = new Vector3(moveFB, gravity, moveLR);
-
-        if (webGLRightClickRotation)
+        if (!isNavigatingUI)
         {
-            if (Input.GetKey(KeyCode.Mouse0))
+            moveFB = Input.GetAxis("Horizontal") * speed;
+            moveLR = Input.GetAxis("Vertical") * speed;
+
+            rotX = Input.GetAxis("Mouse X") * sensitivity;
+            rotY = Input.GetAxis("Mouse Y") * sensitivity;
+
+            //rotX = Input.GetKey (KeyCode.Joystick1Button4);
+            //rotY = Input.GetKey (KeyCode.Joystick1Button5);
+
+            CheckForWaterHeight();
+
+            Vector3 movement = new Vector3(moveFB, gravity, moveLR);
+
+            if (webGLRightClickRotation)
+            {
+                if (Input.GetKey(KeyCode.Mouse0))
+                {
+                    CameraRotation(cam, rotX, rotY);
+                }
+            }
+            else if (!webGLRightClickRotation)
             {
                 CameraRotation(cam, rotX, rotY);
             }
-        }
-        else if (!webGLRightClickRotation)
-        {
-            CameraRotation(cam, rotX, rotY);
-        }
 
-        movement = transform.rotation * movement;
-        character.Move(movement * Time.deltaTime);
+            movement = transform.rotation * movement;
+            character.Move(movement * Time.deltaTime);
+
+        }
 
         if (Input.GetKeyDown(KeyCode.E)) { Interact(); }
 
         if (Input.GetKeyDown(KeyCode.Tab)) { OpenCraftingBook(); }
+        
     }
 
 
