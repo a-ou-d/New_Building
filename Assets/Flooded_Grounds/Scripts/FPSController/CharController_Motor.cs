@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CharController_Motor : MonoBehaviour
 {
-
+    public BuildMenu buildMenu;
     CharacterController character;
     public GameObject cam;
 
@@ -82,8 +82,10 @@ public class CharController_Motor : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.E)) { Interact(); }
 
-        if (Input.GetKeyDown(KeyCode.Tab)) { OpenCraftingBook(); }
-        
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            buildMenu.ToggleMainMenu();
+        }
     }
 
 
@@ -98,11 +100,4 @@ public class CharController_Motor : MonoBehaviour
     {
         // 상호작용
     }
-
-
-    void OpenCraftingBook()
-    {
-        // 건축 제작법..
-    }
-
 }

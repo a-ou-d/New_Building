@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: Props_2
   m_EditorClassIdentifier: Assembly-CSharp::SubMenu
-  subMenuName: 
+  subMenuName: Props_2
+  prefab: {fileID: 113680, guid: 91365c327d21a0343b4fa73a722f938d, type: 3}

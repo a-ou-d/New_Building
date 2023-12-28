@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: BrickHouse_21
   m_EditorClassIdentifier: Assembly-CSharp::SubMenu
-  subMenuName: 
+  subMenuName: BrickHouse_21
+  prefab: {fileID: 179856, guid: b6995a63df49222409e4c1ba3567bb78, type: 3}

@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: Cabins_6
   m_EditorClassIdentifier: Assembly-CSharp::SubMenu
-  subMenuName: 
+  subMenuName: Cabins_6
+  prefab: {fileID: 173244, guid: 773c221436526d44f8af6a31cd3c49ad, type: 3}

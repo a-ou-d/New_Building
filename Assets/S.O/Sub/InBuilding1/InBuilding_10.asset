@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: InBuilding_10
   m_EditorClassIdentifier: Assembly-CSharp::SubMenu
-  subMenuName: 
+  subMenuName: InBuilding_10
+  prefab: {fileID: 152624, guid: dc203fb0cc8d7e34c8a64e7cba631d02, type: 3}

@@ -1,105 +1,119 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine;
 
 public class BuildMenu : MonoBehaviour
 {
     public GameObject mainMenu;
-    public GameObject[] mainMenus;
     public GameObject subMenu;
-    public GameObject[] subMenus;
+    public GameObject helpPanel;
+    public Button[] mainMenuButtons;
+    public Button[] subMenuButtons;
+
     private int mainMenuIndex = 0;
     private int subMenuIndex = 0;
-    private bool isSubMenuActive = false;
+
+
+    void Start()
+    {
+        //SetMenuActive(mainMenu, true);
+    }
 
 
     void Update()
     {
-        if (!isSubMenuActive)
-        {
-            if (Input.GetKeyDown(KeyCode.RightArrow))
-            {
-                mainMenuIndex = Mathf.Min(mainMenuIndex + 1, mainMenus.Length - 1);
-                UpdateMainMenuSelection();
-            }
-            else if (Input.GetKeyDown(KeyCode.LeftArrow))
-            {
-                mainMenuIndex = Mathf.Max(mainMenuIndex - 1, 0);
-                UpdateMainMenuSelection();
-            }
-            else if (Input.GetKeyDown(KeyCode.E))
-            {
-                ActiveSubMenu(mainMenuIndex);
-            }
-        }
-        else
-        {
-            if (Input.GetKeyDown(KeyCode.RightArrow))
-            {
-                mainMenuIndex = Mathf.Min(mainMenuIndex + 1, mainMenus.Length - 1);
-                UpdateSubMenuSelection();
-            }
-            else if (Input.GetKeyDown(KeyCode.LeftArrow))
-            {
-                mainMenuIndex = Mathf.Max(mainMenuIndex - 1, 0);
-                UpdateSubMenuSelection();
-            }
-            else if (Input.GetKeyDown(KeyCode.E))
-            {
-                // ÇÁ¸®ºä ¶ç¿ï°Å
-            }
-        }
+        HandleInput();
+    }
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+
+    private void HandleInput()
+    {
+        if (!CharController_Motor.isNavigatingUI)
         {
-            if (isSubMenuActive)
+            return;
+        }
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            ChangeSelection(ref mainMenuIndex, mainMenuButtons.Length, 1);
+        }
+        else if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            ChangeSelection(ref mainMenuIndex, mainMenuButtons.Length, -1);
+        }
+        else if (Input.GetKeyDown(KeyCode.E))
+        {
+            ToggleSubMenu(mainMenuIndex);
+        }
+        else if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (subMenu.activeSelf)
             {
-                CloseSubMenu();
+                SetMenuActive(subMenu, false);
+                SetMenuActive(mainMenu, true);
             }
-            else
+            else if (mainMenu.activeSelf)
             {
-                CloseBuildMenu();
+                CloseMenus();
             }
         }
     }
 
 
-    void ActiveSubMenu(int index)
+    private void ChangeSelection(ref int index, int count, int step)
     {
-        CloseSubMenu();
-
-        subMenus[index].SetActive(true);
-        isSubMenuActive = true;
-
-        CharController_Motor.isNavigatingUI = true;
+        index = (index + step + count) % count;
+        UpdateSelectionVisuals();
     }
 
-    void CloseSubMenu()
+
+    private void ToggleSubMenu(int index)
     {
-        foreach (var submenu in subMenus)
+        bool isActive = subMenuButtons[index].gameObject.activeSelf;
+        SetMenuActive(subMenuButtons[index].gameObject, !isActive);
+
+        if (!isActive)
         {
-            submenu.SetActive(false);
+            SetMenuActive(mainMenu, false);
+        }
+    }
+
+
+    private void UpdateSelectionVisuals()
+    {
+        for (int i = 0; i < mainMenuButtons.Length; i++)
+        {
+            var outline = mainMenuButtons[i].GetComponent<Outline>();
+            outline.enabled = (i == mainMenuIndex);
         }
 
-        isSubMenuActive = false;
-
-        CharController_Motor.isNavigatingUI = false;
+        for (int i = 0; i < subMenuButtons.Length; i++)
+        {
+            var outline = subMenuButtons[i].GetComponent<Outline>();
+            outline.enabled = (i == subMenuIndex && subMenu.activeSelf);
+        }
     }
 
-    void UpdateMainMenuSelection()
+
+    public void SetMenuActive(GameObject menu, bool isActive)
     {
-        mainMenus[mainMenuIndex].GetComponent<Button>().Select();
+        menu.SetActive(isActive);
+        helpPanel.SetActive(isActive);
+        CharController_Motor.isNavigatingUI = isActive;
     }
 
-    void UpdateSubMenuSelection()
+
+    private void CloseMenus()
     {
-        subMenus[subMenuIndex].GetComponent<Button>().Select();
+        SetMenuActive(mainMenu, false);
+        SetMenuActive(subMenu, false);
+        SetMenuActive(helpPanel, false);
     }
 
-    void CloseBuildMenu()
+
+    public void ToggleMainMenu()
     {
-        mainMenu.SetActive(false);
-        CloseSubMenu();
+        bool isActive = mainMenu.activeSelf;
+        SetMenuActive(mainMenu, !isActive);
+        SetMenuActive(helpPanel, !isActive);
+        CharController_Motor.isNavigatingUI = !isActive;
     }
 }

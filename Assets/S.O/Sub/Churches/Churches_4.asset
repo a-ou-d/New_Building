@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: Churches_4
   m_EditorClassIdentifier: Assembly-CSharp::SubMenu
-  subMenuName: 
+  subMenuName: Churches_4
+  prefab: {fileID: 114648, guid: 8bdc869548e29fd4fbdf4c6b361ce4ce, type: 3}

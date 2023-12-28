@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: GreenHouse_2
   m_EditorClassIdentifier: Assembly-CSharp::SubMenu
-  subMenuName: 
+  subMenuName: GreenHouse_2
+  prefab: {fileID: 111862, guid: 53e8e843102523b459d75c4b0ca32ad9, type: 3}

@@ -12,5 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f356f045d4b6bfa438a2d9bdd3c5e9e2, type: 3}
   m_Name: MainBuild - InBuilding2
   m_EditorClassIdentifier: 
-  menuName: 
-  subMenus: []
+  menuName: InBuilding_2
+  subMenus:
+  - {fileID: 11400000, guid: 6d7a9341d6f7bad489515b049e2cb457, type: 2}
+  - {fileID: 11400000, guid: a4db0dc7d642c194487b2623a0cdb1c6, type: 2}
+  - {fileID: 11400000, guid: bd1f0015573f2244da8a4917f4fc082f, type: 2}
+  - {fileID: 11400000, guid: f470df501a0e7ba419947493298e0c0b, type: 2}
+  - {fileID: 11400000, guid: 0d5f321c92bb2684b8e263c3d1578ca7, type: 2}

@@ -12,5 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f356f045d4b6bfa438a2d9bdd3c5e9e2, type: 3}
   m_Name: MainBuild - Churches
   m_EditorClassIdentifier: 
-  menuName: 
-  subMenus: []
+  menuName: Churches
+  subMenus:
+  - {fileID: 11400000, guid: b4afe430af2933c42ba8773db2c720bd, type: 2}
+  - {fileID: 11400000, guid: 1fcc5a942f1484546a54a661f510f6bb, type: 2}
+  - {fileID: 11400000, guid: a0af19bb8b9043843a31242b23d9301f, type: 2}
+  - {fileID: 11400000, guid: 0733b7b07c7f84f428d10297eb24df3a, type: 2}
+  - {fileID: 11400000, guid: 738acf04f5f26c348943d519fd4b4f6f, type: 2}
+  - {fileID: 11400000, guid: bfcccd09ba2b3df4483fb23fafc4bd8b, type: 2}
+  - {fileID: 11400000, guid: 7e2128cc01f16104a9cb4db9b8186ea3, type: 2}
+  - {fileID: 11400000, guid: ad45d5fd41cf99b48ae13ca6a828ad07, type: 2}
+  - {fileID: 11400000, guid: 2f0e6cece8860a947b5900f3648eb728, type: 2}
+  - {fileID: 11400000, guid: 7cab3b1b54914a243afcdf1d0fd6adb1, type: 2}

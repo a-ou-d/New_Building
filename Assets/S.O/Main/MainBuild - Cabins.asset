@@ -12,5 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f356f045d4b6bfa438a2d9bdd3c5e9e2, type: 3}
   m_Name: MainBuild - Cabins
   m_EditorClassIdentifier: 
-  menuName: 
-  subMenus: []
+  menuName: Cabins
+  subMenus:
+  - {fileID: 11400000, guid: 43800f35170f0204ab1ff5cda8003f09, type: 2}
+  - {fileID: 11400000, guid: d9fe5828c00149442bf81cf1e5a89eec, type: 2}
+  - {fileID: 11400000, guid: f2e0fd7effe372d47b869e31657c0e63, type: 2}
+  - {fileID: 11400000, guid: 62766bfc822f102439de9adf907c24a4, type: 2}
+  - {fileID: 11400000, guid: 68cc108b858024c449be0dd2a953996c, type: 2}
+  - {fileID: 11400000, guid: 29f20e515ba85544aa02e5d2e81a7ac7, type: 2}
+  - {fileID: 11400000, guid: 414bac99b6657644a8edb969b6eaca45, type: 2}
+  - {fileID: 11400000, guid: 96ea780ce5f9e1b4eb6d4f73b5ab0941, type: 2}
+  - {fileID: 11400000, guid: 82b9afd9259f0f84b80ebe8b3ba93e2d, type: 2}
+  - {fileID: 11400000, guid: b84cbaecb8b1ff249a13739041899a6d, type: 2}
+  - {fileID: 11400000, guid: 7dc1afe0127a89648a54a2d3f2fd1628, type: 2}
+  - {fileID: 11400000, guid: 7d411d5eca412e841bd5e91b92e37dd4, type: 2}
+  - {fileID: 11400000, guid: 282fd373e6624f94c98e098fbcbe9288, type: 2}
+  - {fileID: 11400000, guid: 8092ee30e35cb614d8accd9d74817162, type: 2}
