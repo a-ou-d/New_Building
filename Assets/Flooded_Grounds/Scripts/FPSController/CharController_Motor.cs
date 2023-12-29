@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CharController_Motor : MonoBehaviour
 {
-    public BuildMenu buildMenu;
+    public CraftManager craftManager;
     CharacterController character;
     public GameObject cam;
 
@@ -84,7 +84,7 @@ public class CharController_Motor : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            buildMenu.ToggleMainMenu();
+            craftManager.CreateCraftUI();
         }
     }
 
